@@ -1,0 +1,65 @@
+@model IEnumerable<Restaurante.Models.Detalleordene>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-dark" asp-action="Create">Nuevo Detalle de Orden</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrdenId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MenuId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Menu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Orden)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.OrdenId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.MenuId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PrecioUnitario)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Menu)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Orden)
+            </td>
+            <td>
+                <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.DetalleId">Editar</a> |
+                <a  class="btn btn-warning" asp-action="Details" asp-route-id="@item.DetalleId">Detalles</a> |
+                <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.DetalleId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
